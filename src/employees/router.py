@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from src.db import get_async_session
 from sqlalchemy.orm import query
 
-from src.employeers.models import EmployeesModel
+from src.employees.models import EmployeesModel
 
 router = APIRouter(prefix='/employees', tags=["employees"])
 

@@ -10,7 +10,7 @@ from alembic import context
 from src.config import DB_URL
 from src.db import Base
 from src.tasks.models import TaskModel
-from src.employeers.models import EmployeesModel
+from src.employees.models import EmployeesModel
 
 sys.path.append(os.path.join(sys.path[0], "src"))
 # this is the Alembic Config object, which provides
