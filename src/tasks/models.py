@@ -20,8 +20,10 @@ class TaskModel(Base):
     description = Column(String(255), nullable=False)
     status = Column(Enum(StatusEnum), default=StatusEnum.todo)
     employee_id = Column(Integer, ForeignKey("employees.id"))
-    parent_id = Column(Integer, ForeignKey("tasks.id"))
+    parent_id = Column(Integer, ForeignKey("tasks.id"), nullable=True)
     deadline = Column(DateTime(timezone=True), nullable=True)
 
     employee = relationship("EmployeesModel", backref="tasks")
-    parent = relationship("TasksModel", remote_side=id, backref="children")
+    parent = relationship(
+        "TaskModel", remote_side=id, backref="children", cascade="all, delete"
+    )
